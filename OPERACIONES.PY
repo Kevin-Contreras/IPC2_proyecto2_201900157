@@ -185,6 +185,7 @@ class operaciones:
       texto=frame.delete('1.0', END) 
       texto=frame.insert(INSERT, m)
     else:
+      
       fila=0
       columna=0
       m=""
