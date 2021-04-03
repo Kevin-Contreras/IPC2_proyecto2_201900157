@@ -2,13 +2,15 @@ from tkinter import *
 from tkinter import filedialog as dialogo
 from ARCHIVO import *
 from tkinter import messagebox
-from OPERACIONES import * 
+from OPERACIONES import *
+from DOSIMAGENES import * 
 class Interface:
   ventana = Tk()
   frame2 = Text(ventana,width=30,height=350)
   frame3=Text(ventana,width=30,height=350)
   opera = operaciones()
   archivoXml = Archivo()
+  operacionesDosImagenes= DosImagenesOperaciones()
   mensaje=""
   mensajew=""
   ruta=""
@@ -61,7 +63,6 @@ class Interface:
             filas=filas+1
     
     if(int(filas-1)*1==int(fila) and int(letraco)==int(columnass)):
-     
       uy2=0        
       if(uy!=1):
         messagebox.showinfo(message="LA MATRIZ YA EXISTE NO SE PUEDE PROCESAR", title="MATRIZ")
@@ -88,16 +89,26 @@ class Interface:
     else:
          messagebox.showinfo(message="LAS DIMENSIONES NO SON CORRECTAS", title="MATRIZ")
     uy=0
+  """OPERACIONES CON DOS IMAGENES"""
+  def unionw(self):
+    
+    self.operacionesDosImagenes.union(self.ruta,1,2)
+  def interseccion(self):
+    self.operacionesDosImagenes.inteseccion(self.ruta,1,2)
+  def diferencia(self):
+    self.operacionesDosImagenes.diferencia(self.ruta,1,2)
+  def diferenciaSimetrica(self):
+    self.operacionesDosImagenes.diferenciaSimetrica(self.ruta,1,2)
   def dosImagenes(self):
     ventanaOperaciones3 = Tk()
     ventanaOperaciones3.geometry("880x160")
-    boton1 = Button(ventanaOperaciones3,text="UNION A,B" )
+    boton1 = Button(ventanaOperaciones3,text="UNION A,B",command=self.unionw)
     boton1.place(x=20,y=20 ,width=200, height=40)
-    boton2 = Button(ventanaOperaciones3,text="INTERSECCION A,B" )
+    boton2 = Button(ventanaOperaciones3,text="INTERSECCION A,B" ,command=self.interseccion)
     boton2.place(x=230,y=20,width=200, height=40)
-    boton3 = Button(ventanaOperaciones3,text="DIFERENCIA A,B" )
+    boton3 = Button(ventanaOperaciones3,text="DIFERENCIA A,B" ,command=self.diferencia)
     boton3.place(x=440,y=20,width=200, height=40)
-    boton4 = Button(ventanaOperaciones3,text="DIFERENCIA SIMETRICA A,B" )
+    boton4 = Button(ventanaOperaciones3,text="DIFERENCIA SIMETRICA A,B" ,command=self.diferenciaSimetrica)
     boton4.place(x=660,y=20,width=200, height=40)
    
   def funcionBoton1(self):

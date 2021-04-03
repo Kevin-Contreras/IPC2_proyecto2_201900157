@@ -118,7 +118,6 @@ class operaciones:
       for linea in imagen[int(idr)-1].firstChild.nodeValue:
         if(linea!=" "):
           if(linea!="\n"):
-          
             columna=columna+1
             self.matriz3.insertar(fila,columna,linea.replace("-"," "))
           else:

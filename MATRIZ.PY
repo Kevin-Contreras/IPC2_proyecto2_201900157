@@ -90,9 +90,8 @@ class Matriz:
             actual=actual.derecha
      
         efila=efila.siguiente
-matriz=Matriz()
-matriz.insertar(1,1,"kevin")
-matriz.insertar(1,1,"alexis")
+
+
 
 
 

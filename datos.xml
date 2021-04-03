@@ -2,7 +2,7 @@
 <matrices>
     <matriz>
         <nombre>matriz_1</nombre>
-        <fila>10</fila>
+        <fila>9</fila>
         <columna>10</columna>
         <imagen>
             ----------
@@ -14,12 +14,12 @@
             -***-***--
             -*-----*--
             -***-***--
-            ----------
+            
         </imagen>
     </matriz>
     <matriz>
         <nombre>matriz_2</nombre>
-        <fila>10</fila>
+        <fila>11</fila>
         <columna>10</columna>
         <imagen>
             ----------
@@ -31,6 +31,7 @@
             -**-------
             -**-------
             ----------
+            --*------*
             ----------
         </imagen>
     </matriz>
