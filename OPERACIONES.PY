@@ -20,7 +20,7 @@ class operaciones:
   contame7=0
   contame8=0
 
-  def ImagenHorizontal(self,archivoEntrada,frame,ventana):
+  def ImagenHorizontal(self,archivoEntrada,frame,ventana,idr):
     self.contame=self.contame+1
     if(self.contame==1):
       m=""
@@ -29,7 +29,7 @@ class operaciones:
       docs = minidom.parse(archivoEntrada)
       imagen=docs.getElementsByTagName("imagen")
 
-      for linea in imagen[0].firstChild.nodeValue:
+      for linea in imagen[int(idr)-1].firstChild.nodeValue:
         if(linea!=" "):
           if(linea!="\n"):
           
@@ -40,9 +40,9 @@ class operaciones:
             fila=fila+1
       """OPERACION IMAGEN HORIZONATAL"""
       n=""
-      for i in range(int(docs.getElementsByTagName("filas")[0].firstChild.nodeValue)):
-        for u in range(int(docs.getElementsByTagName("columnas")[0].firstChild.nodeValue)):
-          n=n+str(self.matriz.obtnernodo(int(docs.getElementsByTagName("filas")[0].firstChild.nodeValue)-i,u+1))+""
+      for i in range(int(docs.getElementsByTagName("filas")[int(idr)-1].firstChild.nodeValue)):
+        for u in range(int(docs.getElementsByTagName("columnas")[int(idr)-1].firstChild.nodeValue)):
+          n=n+str(self.matriz.obtnernodo(int(docs.getElementsByTagName("filas")[int(idr)-1].firstChild.nodeValue)-i,u+1))+""
         m=m+n+"\n"
         print(n)
         n=""
@@ -55,16 +55,16 @@ class operaciones:
       docs = minidom.parse(archivoEntrada)
       imagen=docs.getElementsByTagName("imagen")
       n=""
-      for iy in range(int(docs.getElementsByTagName("filas")[0].firstChild.nodeValue)):
-        for ue in range(int(docs.getElementsByTagName("columnas")[0].firstChild.nodeValue)):
-          n=n+str(self.matriz.obtnernodo(int(docs.getElementsByTagName("filas")[0].firstChild.nodeValue)-iy,ue+1))+""
+      for iy in range(int(docs.getElementsByTagName("filas")[int(idr)-1].firstChild.nodeValue)):
+        for ue in range(int(docs.getElementsByTagName("columnas")[int(idr)-1].firstChild.nodeValue)):
+          n=n+str(self.matriz.obtnernodo(int(docs.getElementsByTagName("filas")[int(idr)-1].firstChild.nodeValue)-iy,ue+1))+""
         m=m+n+"\n" 
         print(n)
         n=""
       texto=frame.delete('1.0', END)
       texto=frame.insert(INSERT, m)
     
-  def ImagenVertical(self,archivoEntrada,frame,ventana):
+  def ImagenVertical(self,archivoEntrada,frame,ventana,idr):
     self.contame2=self.contame2+1
     if(self.contame2==1):
       fila=0
@@ -73,7 +73,7 @@ class operaciones:
       docs = minidom.parse(archivoEntrada)
       imagen=docs.getElementsByTagName("imagen")
       n=""
-      for linea in imagen[0].firstChild.nodeValue:
+      for linea in imagen[int(idr)-1].firstChild.nodeValue:
         if(linea!=" "):
           if(linea!="\n"):
           
@@ -83,9 +83,9 @@ class operaciones:
             columna=0
             fila=fila+1
       """OPERACION IMAGEN VERTICAL"""
-      for i in range(int(docs.getElementsByTagName("filas")[0].firstChild.nodeValue)):
-        for u in range(int(docs.getElementsByTagName("columnas")[0].firstChild.nodeValue)):
-          n=n+str(self.matriz2.obtnernodo(i+1,int(docs.getElementsByTagName("columnas")[0].firstChild.nodeValue)-u))+""
+      for i in range(int(docs.getElementsByTagName("filas")[int(idr)-1].firstChild.nodeValue)):
+        for u in range(int(docs.getElementsByTagName("columnas")[int(idr)-1].firstChild.nodeValue)):
+          n=n+str(self.matriz2.obtnernodo(i+1,int(docs.getElementsByTagName("columnas")[int(idr)-1].firstChild.nodeValue)-u))+""
         m=m+n+"\n"
         print(n)
         n=""
@@ -98,15 +98,15 @@ class operaciones:
       docs = minidom.parse(archivoEntrada)
       imagen=docs.getElementsByTagName("imagen")
       n=""
-      for i in range(int(docs.getElementsByTagName("filas")[0].firstChild.nodeValue)):
-        for u in range(int(docs.getElementsByTagName("columnas")[0].firstChild.nodeValue)):
-          n=n+str(self.matriz2.obtnernodo(i+1,int(docs.getElementsByTagName("columnas")[0].firstChild.nodeValue)-u))+""
+      for i in range(int(docs.getElementsByTagName("filas")[int(idr)-1].firstChild.nodeValue)):
+        for u in range(int(docs.getElementsByTagName("columnas")[int(idr)-1].firstChild.nodeValue)):
+          n=n+str(self.matriz2.obtnernodo(i+1,int(docs.getElementsByTagName("columnas")[int(idr)-1].firstChild.nodeValue)-u))+""
         m=m+n+"\n"
         print(n)
         n=""
       texto=frame.delete('1.0', END)
       texto=frame.insert(INSERT, m)  
-  def Traspuesta(self,archivoEntrada,frame,ventana):
+  def Traspuesta(self,archivoEntrada,frame,ventana,idr):
     self.contame3=self.contame3+1
     if(self.contame3==1):
       fila=0
@@ -115,7 +115,7 @@ class operaciones:
       docs = minidom.parse(archivoEntrada)
       imagen=docs.getElementsByTagName("imagen")
       n=""
-      for linea in imagen[0].firstChild.nodeValue:
+      for linea in imagen[int(idr)-1].firstChild.nodeValue:
         if(linea!=" "):
           if(linea!="\n"):
           
@@ -125,8 +125,8 @@ class operaciones:
             columna=0
             fila=fila+1
       """OPERACION IMAGEN TRASPUESTA"""
-      for i in range(int(docs.getElementsByTagName("filas")[0].firstChild.nodeValue)):
-        for u in range(int(docs.getElementsByTagName("columnas")[0].firstChild.nodeValue)):
+      for i in range(int(docs.getElementsByTagName("filas")[int(idr)-1].firstChild.nodeValue)):
+        for u in range(int(docs.getElementsByTagName("columnas")[int(idr)-1].firstChild.nodeValue)):
           n=n+str(self.matriz3.obtnernodo(u+1,i+1))+""
         m=m+n+"\n"
         print(n)
@@ -141,15 +141,15 @@ class operaciones:
       docs = minidom.parse(archivoEntrada)
       imagen=docs.getElementsByTagName("imagen")
       n=""
-      for i in range(int(docs.getElementsByTagName("filas")[0].firstChild.nodeValue)):
-        for u in range(int(docs.getElementsByTagName("columnas")[0].firstChild.nodeValue)):
+      for i in range(int(docs.getElementsByTagName("filas")[int(idr)-1].firstChild.nodeValue)):
+        for u in range(int(docs.getElementsByTagName("columnas")[int(idr)-1].firstChild.nodeValue)):
           n=n+str(self.matriz3.obtnernodo(u+1,i+1))+""
         m=m+n+"\n"
         print(n)
         n=""
       texto=frame.delete('1.0', END)
       texto=frame.insert(INSERT, m)
-  def operacionLimpiar(self,archivoEntrada,frame,ventana,y1,x1,y2,x2):
+  def operacionLimpiar(self,archivoEntrada,frame,ventana,idr,y1,x1,y2,x2):
     self.contame4=self.contame4+1
     if(self.contame4==1):
       fila=0
@@ -158,7 +158,7 @@ class operaciones:
       docs = minidom.parse(archivoEntrada)
       imagen=docs.getElementsByTagName("imagen")
       n=""
-      for linea in imagen[0].firstChild.nodeValue:
+      for linea in imagen[int(idr)-1].firstChild.nodeValue:
         if(linea!=" "):
           if(linea!="\n"):
           
@@ -175,8 +175,8 @@ class operaciones:
             if(colu+1>=x1):
               self.matriz4.obtnernodos(li+1,colu+1," ")
 
-      for i in range(int(docs.getElementsByTagName("filas")[0].firstChild.nodeValue)):
-        for u in range(int(docs.getElementsByTagName("columnas")[0].firstChild.nodeValue)):
+      for i in range(int(docs.getElementsByTagName("filas")[int(idr)-1].firstChild.nodeValue)):
+        for u in range(int(docs.getElementsByTagName("columnas")[int(idr)-1].firstChild.nodeValue)):
          
           n=n+str(self.matriz4.obtnernodo(i+1,u+1))+""
         m=m+n+"\n"
@@ -185,7 +185,7 @@ class operaciones:
       texto=frame.delete('1.0', END) 
       texto=frame.insert(INSERT, m)
     else:
-      
+
       fila=0
       columna=0
       m=""
@@ -197,15 +197,15 @@ class operaciones:
           if(li+1>=y1):
             if(colu+1>=x1):
               self.matriz4.obtnernodos(li+1,colu+1," ")
-      for i in range(int(docs.getElementsByTagName("filas")[0].firstChild.nodeValue)):
-        for u in range(int(docs.getElementsByTagName("columnas")[0].firstChild.nodeValue)):
+      for i in range(int(docs.getElementsByTagName("filas")[int(idr)-1].firstChild.nodeValue)):
+        for u in range(int(docs.getElementsByTagName("columnas")[int(idr)-1].firstChild.nodeValue)):
           n=n+str(self.matriz4.obtnernodo(i+1,u+1))+""
         m=m+n+"\n"
         print(n)
         n=""
       texto=frame.delete('1.0', END)
       texto=frame.insert(INSERT, m)
-  def AgregarEnX(self,archivoEntrada,frame,ventana,y,x,cantidad):
+  def AgregarEnX(self,archivoEntrada,frame,ventana,idr,y,x,cantidad):
     self.contame5=self.contame5+1
     if(self.contame5==1):
       fila=0
@@ -214,7 +214,7 @@ class operaciones:
       docs = minidom.parse(archivoEntrada)
       imagen=docs.getElementsByTagName("imagen")
       n=""
-      for linea in imagen[0].firstChild.nodeValue:
+      for linea in imagen[int(idr)-1].firstChild.nodeValue:
         if(linea!=" "):
           if(linea!="\n"):
           
@@ -228,8 +228,8 @@ class operaciones:
       for ir in range(int(cantidad)):
         self.matriz5.obtnernodos(y,x+ir,"*")
 
-      for i in range(int(docs.getElementsByTagName("filas")[0].firstChild.nodeValue)):
-        for u in range(int(docs.getElementsByTagName("columnas")[0].firstChild.nodeValue)):
+      for i in range(int(docs.getElementsByTagName("filas")[int(idr)-1].firstChild.nodeValue)):
+        for u in range(int(docs.getElementsByTagName("columnas")[int(idr)-1].firstChild.nodeValue)):
          
           n=n+str(self.matriz5.obtnernodo(i+1,u+1))+""
         m=m+n+"\n"
@@ -246,15 +246,15 @@ class operaciones:
       n=""
       for ir in range(int(cantidad)):
         self.matriz5.obtnernodos(y,x+ir,"*")
-      for i in range(int(docs.getElementsByTagName("filas")[0].firstChild.nodeValue)):
-        for u in range(int(docs.getElementsByTagName("columnas")[0].firstChild.nodeValue)):
+      for i in range(int(docs.getElementsByTagName("filas")[int(idr)-1].firstChild.nodeValue)):
+        for u in range(int(docs.getElementsByTagName("columnas")[int(idr)-1].firstChild.nodeValue)):
           n=n+str(self.matriz5.obtnernodo(i+1,u+1))+""
         m=m+n+"\n"
         print(n)
         n=""
       texto=frame.delete('1.0', END)
       texto=frame.insert(INSERT, m)
-  def AgregarEnY(self,archivoEntrada,frame,ventana,y,x,cantidad):
+  def AgregarEnY(self,archivoEntrada,frame,ventana,idr,y,x,cantidad):
     self.contame6=self.contame6+1
     if(self.contame6==1):
       fila=0
@@ -263,7 +263,7 @@ class operaciones:
       docs = minidom.parse(archivoEntrada)
       imagen=docs.getElementsByTagName("imagen")
       n=""
-      for linea in imagen[0].firstChild.nodeValue:
+      for linea in imagen[int(idr)-1].firstChild.nodeValue:
         if(linea!=" "):
           if(linea!="\n"):
           
@@ -276,8 +276,8 @@ class operaciones:
       for ir in range(int(cantidad)):
         self.matriz6.obtnernodos(y+ir,x,"*")
 
-      for i in range(int(docs.getElementsByTagName("filas")[0].firstChild.nodeValue)):
-        for u in range(int(docs.getElementsByTagName("columnas")[0].firstChild.nodeValue)):
+      for i in range(int(docs.getElementsByTagName("filas")[int(idr)-1].firstChild.nodeValue)):
+        for u in range(int(docs.getElementsByTagName("columnas")[int(idr)-1].firstChild.nodeValue)):
          
           n=n+str(self.matriz6.obtnernodo(i+1,u+1))+""
         m=m+n+"\n"
@@ -294,15 +294,15 @@ class operaciones:
       n=""
       for ir in range(int(cantidad)):
         self.matriz6.obtnernodos(y+ir,x,"*")
-      for i in range(int(docs.getElementsByTagName("filas")[0].firstChild.nodeValue)):
-        for u in range(int(docs.getElementsByTagName("columnas")[0].firstChild.nodeValue)):
+      for i in range(int(docs.getElementsByTagName("filas")[int(idr)-1].firstChild.nodeValue)):
+        for u in range(int(docs.getElementsByTagName("columnas")[int(idr)-1].firstChild.nodeValue)):
           n=n+str(self.matriz6.obtnernodo(i+1,u+1))+""
         m=m+n+"\n"
         print(n)
         n=""
       texto=frame.delete('1.0', END)
       texto=frame.insert(INSERT, m)
-  def AgregarRectangulo(self,archivoEntrada,frame,ventana,y,x,cantidadY,cantidadX):
+  def AgregarRectangulo(self,archivoEntrada,frame,ventana,idr,y,x,cantidadY,cantidadX):
     self.contame7=self.contame7+1
     if(self.contame7==1):
       fila=0
@@ -311,7 +311,7 @@ class operaciones:
       docs = minidom.parse(archivoEntrada)
       imagen=docs.getElementsByTagName("imagen")
       n=""
-      for linea in imagen[0].firstChild.nodeValue:
+      for linea in imagen[int(idr)-1].firstChild.nodeValue:
         if(linea!=" "):
           if(linea!="\n"):
           
@@ -350,8 +350,8 @@ class operaciones:
       for ir in range(int(cantidadX)):
         self.matriz7.obtnernodos(y+cantidadY-1,x+ir,"*")  
 
-      for i in range(int(docs.getElementsByTagName("filas")[0].firstChild.nodeValue)):
-        for u in range(int(docs.getElementsByTagName("columnas")[0].firstChild.nodeValue)):
+      for i in range(int(docs.getElementsByTagName("filas")[int(idr)-1].firstChild.nodeValue)):
+        for u in range(int(docs.getElementsByTagName("columnas")[int(idr)-1].firstChild.nodeValue)):
          
           n=n+str(self.matriz7.obtnernodo(i+1,u+1))+""
         m=m+n+"\n"
@@ -370,29 +370,29 @@ class operaciones:
         self.matriz7.obtnernodos(y,x+ir,"*")
       for ir in range(int(cantidadX)):
         self.matriz7.obtnernodos(y+cantidadY-1,x+ir,"*")  
-      for i in range(int(docs.getElementsByTagName("filas")[0].firstChild.nodeValue)):
-        for u in range(int(docs.getElementsByTagName("columnas")[0].firstChild.nodeValue)):
+      for i in range(int(docs.getElementsByTagName("filas")[int(idr)-1].firstChild.nodeValue)):
+        for u in range(int(docs.getElementsByTagName("columnas")[int(idr)-1].firstChild.nodeValue)):
           n=n+str(self.matriz7.obtnernodo(i+1,u+1))+""
         print(n)
         m=m+n+"\n"
         n=""
       texto=frame.delete('1.0', END)
       texto=frame.insert(INSERT, m)
-  def AgregarTriangulo(self,archivoEntrada,frame,ventana,y,x,cantidad):
+  def AgregarTriangulo(self,archivoEntrada,frame,ventana,idr,y,x,cantidad):
     kat=0
     self.contame8=self.contame8+1
     if(self.contame8==1):
+      print("holaaaaaaaaaa")
       fila=0
       columna=0
-      
       docs = minidom.parse(archivoEntrada)
       imagen=docs.getElementsByTagName("imagen")
       n=""
       m=""
-      for linea in imagen[0].firstChild.nodeValue:
+      for linea in imagen[int(idr)-1].firstChild.nodeValue:
         if(linea!=" "):
           if(linea!="\n"):
-          
+           
             columna=columna+1
             self.matriz8.insertar(fila,columna,linea.replace("-"," "))
           else:
@@ -426,31 +426,31 @@ class operaciones:
         self.matriz8.obtnernodos(ir+y,ir+int(x),"*") 
         
 
-      for i in range(int(docs.getElementsByTagName("filas")[0].firstChild.nodeValue)):
-        for u in range(int(docs.getElementsByTagName("columnas")[0].firstChild.nodeValue)):
+      for i in range(int(docs.getElementsByTagName("filas")[int(idr)-1].firstChild.nodeValue)):
+        for u in range(int(docs.getElementsByTagName("columnas")[int(idr)-1].firstChild.nodeValue)):
          
           n=n+str(self.matriz8.obtnernodo(i+1,u+1))+""
-          
-        
         m=m+n+"\n"
+        print(n)
         n=""
       texto=frame.delete('1.0', END)
       texto=frame.insert(INSERT, m)
     else:
       fila=0
       m=""
-
       columna=0
       docs = minidom.parse(archivoEntrada)
       imagen=docs.getElementsByTagName("imagen")
       n=""
       for ir in range(int(cantidad)):
         self.matriz8.obtnernodos(y+cantidad-1,x+ir,"*")  
-      for i in range(int(docs.getElementsByTagName("filas")[0].firstChild.nodeValue)):
-        for u in range(int(docs.getElementsByTagName("columnas")[0].firstChild.nodeValue)):
+      for i in range(int(docs.getElementsByTagName("filas")[int(idr)-1].firstChild.nodeValue)):
+        for u in range(int(docs.getElementsByTagName("columnas")[int(idr)-1].firstChild.nodeValue)):
           n=n+str(self.matriz8.obtnernodo(i+1,u+1))+""
         m=m+n+"\n"
+        print(n)
         n=""
+        
       texto=frame.delete('1.0', END)
       texto=frame.insert(INSERT, m)
       

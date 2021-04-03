@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <matrices>
   <matriz>
-    <nombre>matriz_1</nombre>
+    <nombre>matriz_2</nombre>
     <filas>10</filas>
     <columnas>10</columnas>
     <imagen>
@@ -18,7 +18,7 @@
     </imagen>
   </matriz>
   <matriz>
-    <nombre>matriz_2</nombre>
+    <nombre>matriz_3</nombre>
     <filas>8</filas>
     <columnas>8</columnas>
     <imagen>
@@ -28,6 +28,51 @@
       -*-*--*-
       --------
       -***--*-
+      --*--*-*
+      -***--*-
+    </imagen>
+  </matriz>
+  <matriz>
+    <nombre>matriz_3</nombre>
+    <filas>8</filas>
+    <columnas>8</columnas>
+    <imagen>
+      --------
+      -*-*-*-*
+      --*---*-
+      -*-*--*-
+      --------
+      -***--*-
+      --*--*-*
+      -***--*-
+    </imagen>
+  </matriz>
+  <matriz>
+    <nombre>matriz_2</nombre>
+    <filas>8</filas>
+    <columnas>7</columnas>
+    <imagen>
+      --------
+      -*-*-*-*
+      --*---*-
+      -*-*--*-
+      --------
+      -***--*-
+      --*--*-*
+      -***--*-
+    </imagen>
+  </matriz>
+  <matriz>
+    <nombre>matriz_5</nombre>
+    <filas>8</filas>
+    <columnas>8</columnas>
+    <imagen>
+      --------
+      -*-*-*-*
+      --*---*-
+      -*-*--*-
+      --------
+      -***--**
       --*--*-*
       -***--*-
     </imagen>
