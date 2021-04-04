@@ -8,6 +8,7 @@ from MATRIZ import *
 from datetime import datetime
 from REPORTES import *
 import os
+import webbrowser as wb
 class Interface:
   ventana = Tk()
   frame2 = Text(ventana,width=30,height=350)
@@ -17,6 +18,7 @@ class Interface:
   reporte=Reportes()
   nombres1=""
   nombres=""
+  label2=""
   operacionesDosImagenes= DosImagenesOperaciones()
   mensaje=""
   mensajew=""
@@ -28,8 +30,30 @@ class Interface:
   mensaje3=""
   mensaje2w=""
   mensaje3w=""
-  
-  
+  """"BOTON LIMPIAR"""
+  limpiar2=""
+  limpiar3=""
+  limpiar4=""
+  limpiar5=""
+  """AGREGAR X"""
+  agregary1=""
+  agregary2=""
+  agregary3=""
+  """AGREGAR Y"""
+  agregarx1=""
+  agregarx2=""
+  agregarx3=""
+  contador=0
+  """AGREGAR RECTANGULO"""
+  agregarR1=""
+  agregarR2=""
+  agregarR3=""
+  agregarR4=""
+  """AGREGAR RECTANGULO"""
+  agregarT1=""
+  agregarT2=""
+  agregarT3=""
+  contador=0
   def rotacionHorizontal(self):
     
     self.opera.ImagenHorizontal(self.ruta,self.ventana,self.mensaje)
@@ -37,16 +61,124 @@ class Interface:
     self.opera.ImagenVertical(self.ruta,self.ventana,self.mensaje)
   def transpuestaImagen(self):
     self.opera.Traspuesta(self.ruta,self.ventana,self.mensaje)
+  def limpiar1(self):
+    self.opera.operacionLimpiar(self.ruta,self.ventana,self.mensaje,int(self.limpiar2.get(1.0,"end-1c")),int(self.limpiar3.get(1.0,"end-1c")),int(self.limpiar4.get(1.0,"end-1c")),int(self.limpiar5.get(1.0,"end-1c")))
   def limpiar(self):
-    self.opera.operacionLimpiar(self.ruta,self.ventana,self.mensaje,2,6,3,8)
+    ventanaLimpiar = Tk()
+    ventanaLimpiar.geometry("450x300")
+    titulo=Label(ventanaLimpiar,text="LIMPIAR AREA")
+    titulo.place(x=200,y=20)
+    primeraFila=Label(ventanaLimpiar,text="PRIMERA FILA")
+    primeraFila.place(x=200,y=60)
+    self.limpiar2=Text(ventanaLimpiar)
+    self.limpiar2.place(x=150,y=80,width=200, height=20)
+    primeraColumna=Label(ventanaLimpiar,text="PRIMERA COLUMNA")
+    primeraColumna.place(x=200,y=100)
+    self.limpiar3=Text(ventanaLimpiar)
+    self.limpiar3.place(x=150,y=120,width=200, height=20)
+    ultimaFila=Label(ventanaLimpiar,text="ULTIMA FILA")
+    ultimaFila.place(x=200,y=140)
+    self.limpiar4=Text(ventanaLimpiar)
+    self.limpiar4.place(x=150,y=160,width=200, height=20)
+    ultimaColumna=Label(ventanaLimpiar,text="UTLIMA COLUMNA")
+    ultimaColumna.place(x=200,y=180)
+    self.limpiar5=Text(ventanaLimpiar)
+    self.limpiar5.place(x=150,y=200,width=200, height=20)
+    boton = Button(ventanaLimpiar,text="ACEPTAR",command=self.limpiar1)
+    boton.place(x=150,y=230,width=200, height=20)
+    
+
+  def agregarXS(self):
+    self.opera.AgregarEnX(self.ruta,self.ventana,self.mensaje,int(self.agregarx1.get(1.0,"end-1c")),int(self.agregarx2.get(1.0,"end-1c")),int(self.agregarx3.get(1.0,"end-1c")))
   def agregarX(self):
-    self.opera.AgregarEnX(self.ruta,self.ventana,self.mensaje,6,3,5)
+    ventanaX = Tk()
+    ventanaX.geometry("450x300")
+    titulo=Label(ventanaX,text="AGREGAR EM X")
+    titulo.place(x=200,y=20)
+    primeraFila=Label(ventanaX,text="FILA")
+    primeraFila.place(x=200,y=60)
+    self.agregarx1=Text(ventanaX)
+    self.agregarx1.place(x=150,y=80,width=200, height=20)
+    primeraColumna=Label(ventanaX,text="COLUMNA")
+    primeraColumna.place(x=200,y=100)
+    self.agregarx2=Text(ventanaX)
+    self.agregarx2.place(x=150,y=120,width=200, height=20)
+    ultimaFila=Label(ventanaX,text="CANTIDAD")
+    ultimaFila.place(x=200,y=140)
+    self.agregarx3=Text(ventanaX)
+    self.agregarx3.place(x=150,y=160,width=200, height=20)
+ 
+    boton = Button(ventanaX,text="ACEPTAR",command=self.agregarXS)
+    boton.place(x=150,y=230,width=200, height=20)
+  def agregarYS(self):
+    self.opera.AgregarEnY(self.ruta,self.ventana,self.mensaje,int(self.agregary1.get(1.0,"end-1c")),int(self.agregary2.get(1.0,"end-1c")),int(self.agregary3.get(1.0,"end-1c")))  
   def agregarY(self):
-    self.opera.AgregarEnY(self.ruta,self.ventana,self.mensaje,3,4,5)
+    ventanaY = Tk()
+    ventanaY.geometry("450x300")
+    titulo=Label(ventanaY,text="AGREGAR EN Y")
+    titulo.place(x=200,y=20)
+    primeraFila=Label(ventanaY,text="FILA")
+    primeraFila.place(x=200,y=60)
+    self.agregary1=Text(ventanaY)
+    self.agregary1.place(x=150,y=80,width=200, height=20)
+    primeraColumna=Label(ventanaY,text="COLUMNA")
+    primeraColumna.place(x=200,y=100)
+    self.agregary2=Text(ventanaY)
+    self.agregary2.place(x=150,y=120,width=200, height=20)
+    ultimaFila=Label(ventanaY,text="CANTIDAD")
+    ultimaFila.place(x=200,y=140)
+    self.agregary3=Text(ventanaY)
+    self.agregary3.place(x=150,y=160,width=200, height=20)
+    boton = Button(ventanaY,text="ACEPTAR",command=self.agregarYS)
+    boton.place(x=150,y=230,width=200, height=20)
+  def r(self):
+    self.opera.AgregarRectangulo(self.ruta,self.ventana,self.mensaje,int(self.agregarR1.get(1.0,"end-1c")),int(self.agregarR2.get(1.0,"end-1c")),int(self.agregarR3.get(1.0,"end-1c")),int(self.agregarR4.get(1.0,"end-1c")))
   def rectangulo(self):
-    self.opera.AgregarRectangulo(self.ruta,self.ventana,self.mensaje,2,6,3,3)
-  def triangulo(self):
+    ventanaRectangulo = Tk()
+    ventanaRectangulo.geometry("450x300")
+    titulo=Label(ventanaRectangulo,text="AGREGAR RECTANGULO")
+    titulo.place(x=200,y=20)
+    primeraFila=Label(ventanaRectangulo,text="PRIMERA FILA")
+    primeraFila.place(x=200,y=60)
+    self.agregarR1=Text(ventanaRectangulo)
+    self.agregarR1.place(x=150,y=80,width=200, height=20)
+    primeraColumna=Label(ventanaRectangulo,text="PRIMERA COLUMNA")
+    primeraColumna.place(x=200,y=100)
+    self.agregarR2=Text(ventanaRectangulo)
+    self.agregarR2.place(x=150,y=120,width=200, height=20)
+    ultimaFila=Label(ventanaRectangulo,text=" CANTIDAD ANCHO")
+    ultimaFila.place(x=200,y=140)
+    self.agregarR3=Text(ventanaRectangulo)
+    self.agregarR3.place(x=150,y=160,width=200, height=20)
+    ultimaColumna=Label(ventanaRectangulo,text="CANTIDAD ALTO")
+    ultimaColumna.place(x=200,y=180)
+    self.agregarR4=Text(ventanaRectangulo)
+    self.agregarR4.place(x=150,y=200,width=200, height=20)
+    boton = Button(ventanaRectangulo,text="ACEPTAR",command=self.r)
+    boton.place(x=150,y=230,width=200, height=20)
+    
+  def agregart(self):
     self.opera.AgregarTriangulo(self.ruta,self.ventana,self.mensaje,2,2,4)
+  def triangulo(self):
+    ventanaTriangulo = Tk()
+    ventanaTriangulo.geometry("450x300")
+    titulo=Label(ventanaTriangulo,text="AGREGAR TRIENGULO")
+    titulo.place(x=200,y=20)
+    primeraFila=Label(ventanaTriangulo,text="FILA")
+    primeraFila.place(x=200,y=60)
+    self.agregarT1=Text(ventanaTriangulo)
+    self.agregarT1.place(x=150,y=80,width=200, height=20)
+    primeraColumna=Label(ventanaTriangulo,text="COLUMNA")
+    primeraColumna.place(x=200,y=100)
+    self.agregarT2=Text(ventanaTriangulo)
+    self.agregarT2.place(x=150,y=120,width=200, height=20)
+    ultimaFila=Label(ventanaTriangulo,text="LONGUITUD")
+    ultimaFila.place(x=200,y=140)
+    self.agregarT3=Text(ventanaTriangulo)
+    self.agregarT3.place(x=150,y=160,width=200, height=20)
+ 
+    boton = Button(ventanaTriangulo,text="ACEPTAR",command=self.agregart)
+    boton.place(x=150,y=230,width=200, height=20)
     
   def ventanaOperacinesUnaImagen(self):
     uy=0
@@ -354,7 +486,8 @@ class Interface:
       os.system('dot -Tgif tablaprimera2.dot -o primera3.gif')
       img = PhotoImage(file="primera3.gif")
       Label(self.ventana, image=img).place(x=90,y=420)
-      self.ventana.geometry("650x800")
+      self.label2.place(x=110,y=830)
+      self.ventana.geometry("650x900")
       self.mensaje3=self.mensajew3.get(1.0,"end-1c")
       self.mensaje2=self.mensajew2.get(1.0,"end-1c")
       ventanaOperaciones3 = Tk()
@@ -419,16 +552,34 @@ class Interface:
     boton1.place(x=20 ,y=170 ,width=220, height=40)
   def funcionBoton3(self):
     self.reporte.desplegar()
+  def yo(self):
+    ayuda2 = Tk()
+    ayuda2.geometry("250x50")
+    Label(ayuda2,text="CARNET:201900157").pack()
+    Label(ayuda2,text="NOMBRE:KEVIN ALEXIS LOPEZ CONTRERAS").pack()
+  def documentacion(self):
+    wb.open_new("DOSIMAGENES.html")
   def funcionBoton4(self):
-    dialogo.askopenfilename(title="ARCHIVO")
+    ayuda = Tk()
+    ayuda.geometry("250x300")
+    boton1 = Button(ayuda,text="DOCUMENTACION" ,command=self.documentacion)
+    boton1.place(x=20,y=110 ,width=200, height=40)
+    boton1 = Button(ayuda,text="DATOS DEL DEL ESTUDIANTE",command= self.yo)
+    boton1.place(x=20 ,y=170 ,width=220, height=40)
+
   def ventanaEmergente(self):
     miFrame = Frame()
     self.ventana.title("PROYECTO 2")
+    
     self.ventana.geometry("650x500")
     self.ventana.resizable(True,True)
     miFrame.pack(fill="both", expand="true")
     miFrame.config(width="300px",height="40px")
- 
+    label1 = Label(self.ventana,text="IMAGEN RESULTANTE")
+    self.label2 = Label(self.ventana,text="IMAGEN ORIGINAL")
+    label1.place(x=400,y=450)
+    self.label2.place(x=100,y=450)
+
     boton1 = Button(miFrame,text="CARGAR ARCHIVO" ,command=self.funcionBoton1)
     boton1.place(x=20 ,width=150, height=40)
     boton2 = Button(miFrame,text="OPERACIONES" ,command=self.operaciones)

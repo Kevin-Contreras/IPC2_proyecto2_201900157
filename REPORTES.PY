@@ -19,7 +19,7 @@ class Reportes:
         text-align: center;
       }
       img{
-        height: 7000px;
+        height: 1010px;
         width: 100%;
         position: absolute;
       }
@@ -95,7 +95,7 @@ class Reportes:
         text-align: center;
       }
       img{
-        height: 7000px;
+        height: 1010px;
         width: 100%;
         position: absolute;
       }
@@ -172,7 +172,7 @@ class Reportes:
         text-align: center;
       }
       img{
-        height: 7000px;
+        height: 1010px;
         width: 100%;
         position: absolute;
       }
