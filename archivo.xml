@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
   <matrices>
     <matriz>
-        <nombre>matriz_1</nombre>
+        <nombre>matriz_2</nombre>
         <filas>10</filas>
         <columnas>10</columnas>
         <imagen>
@@ -32,7 +32,6 @@
             -**-------
             ----------
             ----------
-      
         </imagen>
     </matriz>
 </matrices>
