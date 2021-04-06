@@ -558,7 +558,7 @@ class Interface:
     Label(ayuda2,text="CARNET:201900157").pack()
     Label(ayuda2,text="NOMBRE:KEVIN ALEXIS LOPEZ CONTRERAS").pack()
   def documentacion(self):
-    wb.open_new("DOSIMAGENES.html")
+    wb.open_new("DOCUMENTACION\DOCUMENTACION.pdf")
   def funcionBoton4(self):
     ayuda = Tk()
     ayuda.geometry("250x300")
