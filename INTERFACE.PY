@@ -158,7 +158,7 @@ class Interface:
     boton.place(x=150,y=230,width=200, height=20)
     
   def agregart(self):
-    self.opera.AgregarTriangulo(self.ruta,self.ventana,self.mensaje,2,2,4)
+    self.opera.AgregarTriangulo(self.ruta,self.ventana,self.mensaje,int(self.agregarT1.get(1.0,"end-1c")),int(self.agregarT2.get(1.0,"end-1c")),int(self.agregarT3.get(1.0,"end-1c")))
   def triangulo(self):
     ventanaTriangulo = Tk()
     ventanaTriangulo.geometry("450x300")
